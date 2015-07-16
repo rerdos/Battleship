@@ -16,7 +16,7 @@ var rl = readline.createInterface({
     output: process.stdout,
     terminal: false
 });
-console.log(ships);
+console.log("---BATTLESHIP---");
 console.log("To start the game, input a coordinate (for example 'F5'):");
 
 rl.on('line', function(line) {
