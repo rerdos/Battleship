@@ -6,7 +6,20 @@ placeShip(5);
 placeShip(4);
 placeShip(4);
 
-console.log(ships);
+var prompt = require('prompt');
+
+var userInput;
+
+prompt.start();
+
+prompt.get(['coordinate'], function (err, result) {
+    console.log("jfoisdhfoisdiufhsdiofhisdhjf");
+    console.log('coordinate: ' + result.coordinate);
+    userInput = 4;
+
+});
+
+console.log(userInput);
 
 function placeShip(length) {
     var coordinates = [];
@@ -49,6 +62,28 @@ function placeShip(length) {
         } while (!isValidPlace(newShip));
     }
     ships[ships.length] = newShip;
+}
+
+function isValidInput(input) {
+    var inputArray = input.split("");
+    if (inputArray.length === 3) {
+        return (inputArray[1] === '1' && inputArray[2] === '0');
+    }
+
+    if (inputArray.length !== 2) {
+        return false;
+    }
+
+    if (isNaN(inputArray[1]) || inputArray[1] === '0') {
+        return false;
+    }
+
+    for (var i = 0; i < letters.length; i++) {
+        if (letters[i]===inputArray[0]) {
+            return true;
+        }
+    }
+    return false;
 }
 
 function isValidPlace(ship) {
